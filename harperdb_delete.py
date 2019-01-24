@@ -8,7 +8,7 @@ class HarperDBDelete(HarperDBBase, Block, EnrichSignals):
     version = VersionProperty('0.1.0')
     schema = StringProperty(title='Schema', default='dev', order=2)
     table = StringProperty(title='Table', default='dog', order=3)
-    hash_values = Property(title='Hash Values', default='{{ [1, 3] }}', order=4)
+    hash_values = Property(title='Hash Values', default='1, 3', order=4)
 
     def process_signals(self, signals):
         out_sigs = []
@@ -17,7 +17,7 @@ class HarperDBDelete(HarperDBBase, Block, EnrichSignals):
               'schema': self.schema(),
               'table': self.table(),
               'operation': 'delete',
-              'hash_values': self.hash_values(signal)
+              'hash_values': self.hash_values(signal).replace(" ","").split(",")
             }
             result = self.sendQuery(payload)
             out_sigs.append(self.get_output_signal(result, signal))
