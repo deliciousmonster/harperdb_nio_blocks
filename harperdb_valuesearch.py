@@ -20,9 +20,9 @@ class HarperDBValueSearch(HarperDBBase, Block, EnrichSignals):
               'schema': self.schema(),
               'table': self.table(),
               'operation': 'search_by_value',
-              'hash_attribute': self.hash_attribute(),
-              'search_attribute': self.search_attribute(),
-              'search_value': self.search_value(),
+              'hash_attribute': self.hash_attribute(signal),
+              'search_attribute': self.search_attribute(signal),
+              'search_value': self.search_value(signal),
               'get_attributes': self.get_attributes(signal).replace(" ","").split(",")
             }
             print(payload);

@@ -19,9 +19,9 @@ class HarperDBHashSearch(HarperDBBase, Block, EnrichSignals):
               'schema': self.schema(),
               'table': self.table(),
               'operation': 'search_by_hash',
-              'hash_attribute': self.hash_attribute(),
+              'hash_attribute': self.hash_attribute(signal),
               'hash_values': self.hash_values(signal).replace(" ","").split(","),
-              'get_attributes': self.get_attributes()
+              'get_attributes': self.get_attributes(signal).replace(" ","").split(",")
             }
             result = self.sendQuery(payload)
             for r in result:
