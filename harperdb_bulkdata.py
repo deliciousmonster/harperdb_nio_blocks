@@ -15,7 +15,7 @@ class HarperDBBulkData(HarperDBBase, Block, EnrichSignals):
     operation = SelectProperty(Operation, title='Data Source', default=Operation.DATA, order=2)
     schema = StringProperty(title='Schema', default='dev', order=3)
     table = StringProperty(title='Table', default='dog', order=4)
-    data = Property(title='Data (escaped string, file, or url)', order=5)
+    data = Property(title='Data (escaped string, file, or url)', default='{{ $data }}', order=5)
 
     def process_signals(self, signals):
         out_sigs = []
@@ -32,8 +32,9 @@ class HarperDBBulkData(HarperDBBase, Block, EnrichSignals):
                 payload['file_path'] = self.data(signal)
             if self.operation() is Operation.URL:
                 payload['csv_url'] = self.data(signal)
-
             result = self.sendQuery(payload)
-            out_sigs.append(self.get_output_signal(result, signal))
+            job_result = self.get_job_result(result["message"].replace("Starting job with id ",""))
+            out_sigs.append(self.get_output_signal(job_result, signal))
 
         self.notify_signals(out_sigs)
+

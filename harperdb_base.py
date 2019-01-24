@@ -4,6 +4,7 @@ from nio.util.discovery import not_discoverable
 import base64
 import requests
 import json
+import time
 
 class DatabaseConnection(PropertyHolder):
     server = StringProperty(title='Server', default='localhost', order=0)
@@ -37,4 +38,18 @@ class HarperDBBase(Block):
     def sendQuery(self, payload):
         result = requests.post(self.url, headers = self.headers, json=payload, allow_redirects=self.dbserver().allow_redirects(), timeout=self.dbserver().timeout())
         return json.loads(result.text)
+
+    def get_job_result(self, jobid):
+        payload = {
+          'operation': 'get_job',
+          'id': jobid
+        }
+        result = self.sendQuery(payload)
+        resultObject = result[0]
+        if resultObject["status"] and resultObject["status"] == "COMPLETE":
+          return resultObject
+        else:
+          time.sleep(1)
+          return self.get_job_result(jobid)
+
 
