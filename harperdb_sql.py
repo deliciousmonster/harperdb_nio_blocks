@@ -6,7 +6,7 @@ from .harperdb_base import HarperDBBase
 class HarperDBSQL(HarperDBBase, Block, EnrichSignals):
 
     version = VersionProperty('0.1.0')
-    sql = StringProperty(title='SQL Query', default='SELECT id, name, breed FROM dog WHERE age < 10', order=2)
+    sql = StringProperty(title='SQL Query', default='select * from dev.dog where id = 1', order=2)
 
     def process_signals(self, signals):
         out_sigs = []
@@ -16,7 +16,6 @@ class HarperDBSQL(HarperDBBase, Block, EnrichSignals):
               'sql': self.sql(signal)
             }
             result = self.sendQuery(payload)
-            print(result)
             for r in result:
                 out_sigs.append(self.get_output_signal(r, signal))
 
