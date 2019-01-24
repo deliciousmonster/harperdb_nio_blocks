@@ -1,0 +1,58 @@
+{
+  "nio/HarperDBBulkData": {
+    "version": "0.1.0",
+    "description": "Insert bulk data from CSV",
+    "categories": [
+      "Database"
+    ],
+    "from_readme": "docs/harperdb_bulkdata_block.md"
+  },
+  "nio/HarperDBInsert": {
+    "version": "0.1.0",
+    "description": "Insert array of objects",
+    "categories": [
+      "Database"
+    ],
+    "from_readme": "docs/harperdb_insert_block.md"
+  },
+  "nio/HarperDBUpdate": {
+    "version": "0.1.0",
+    "description": "Update array of objects",
+    "categories": [
+      "Database"
+    ],
+    "from_readme": "docs/harperdb_update_block.md"
+  },
+  "nio/HarperDBDelete": {
+    "version": "0.1.0",
+    "description": "Delete array of hash_values",
+    "categories": [
+      "Database"
+    ],
+    "from_readme": "docs/harperdb_delete_block.md"
+  },
+  "nio/HarperDBHashSearch": {
+    "version": "0.1.0",
+    "description": "Search records by specified hash_value",
+    "categories": [
+      "Database"
+    ],
+    "from_readme": "docs/harperdb_hashsearch_block.md"
+  },
+  "nio/HarperDBValueSearch": {
+    "version": "0.1.0",
+    "description": "Search records by specified attribute_value(s)",
+    "categories": [
+      "Database"
+    ],
+    "from_readme": "docs/harperdb_valuesearch_block.md"
+  },
+  "nio/HarperDBSQL": {
+    "version": "0.1.0",
+    "description": "Execute Raw SQl Query",
+    "categories": [
+      "Database"
+    ],
+    "from_readme": "docs/harperdb_sql_block.md"
+  }
+}
