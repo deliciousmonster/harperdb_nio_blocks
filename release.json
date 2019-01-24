@@ -1,0 +1,37 @@
+{
+  "nio/HarperDBInsert": {
+    "language": "Python",
+    "url": "git://github.com/deliciousmonster/harperdb_nioblocks.git",
+    "version": "0.1.0"
+  },
+  "nio/HarperDBDelete": {
+    "language": "Python",
+    "url": "git://github.com/deliciousmonster/harperdb_nioblocks.git",
+    "version": "0.1.0"
+  },
+  "nio/HarperDBUpdate": {
+    "language": "Python",
+    "url": "git://github.com/deliciousmonster/harperdb_nioblocks.git",
+    "version": "0.1.0"
+  },
+  "nio/HarperDBHashSearch": {
+    "language": "Python",
+    "url": "git://github.com/deliciousmonster/harperdb_nioblocks.git",
+    "version": "0.1.0"
+  },
+  "nio/HarperDBValueSearch": {
+    "language": "Python",
+    "url": "git://github.com/deliciousmonster/harperdb_nioblocks.git",
+    "version": "0.1.0"
+  },
+  "nio/HarperDBSQL": {
+    "language": "Python",
+    "url": "git://github.com/deliciousmonster/harperdb_nioblocks.git",
+    "version": "0.1.0"
+  },
+  "nio/HarperDBBulkData": {
+    "language": "Python",
+    "url": "git://github.com/deliciousmonster/harperdb_nioblocks.git",
+    "version": "0.1.0"
+  }
+}
