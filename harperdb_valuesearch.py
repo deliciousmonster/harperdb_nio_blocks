@@ -25,7 +25,6 @@ class HarperDBValueSearch(HarperDBBase, Block, EnrichSignals):
               'search_value': self.search_value(signal),
               'get_attributes': self.get_attributes(signal).replace(" ","").split(",")
             }
-            print(payload);
             result = self.sendQuery(payload)
             for r in result:
                 out_sigs.append(self.get_output_signal(r, signal))
