@@ -8,17 +8,16 @@ class HarperDBSQL(HarperDBBase, Block, EnrichSignals):
     version = VersionProperty('0.1.0')
     sql = StringProperty(title='SQL Query', default='SELECT id, name, breed FROM dog WHERE age < 10', order=2)
 
-    def process_signals(self, signals):
-        out_sigs = []
-        for signal in signals:
-            payload = {
-              'operation': 'sql',
-              'sql': self.sql(signal)
-            }
-            result = self.sendQuery(payload)
-            for r in result:
-                out_sigs.append(self.get_output_signal(r, signal))
+    def process_signal(self, signal, input_id=None):
+        _sql = self.sql(signal)
+        
+        payload = {
+          'operation': 'sql',
+          'sql': self.sql(signal)
+        }
 
-        self.notify_signals(out_sigs)
+        result = self.sendQuery(payload)
+
+        self.notify_signals(self.get_output_signal({'result': result }, signal))
 
 
